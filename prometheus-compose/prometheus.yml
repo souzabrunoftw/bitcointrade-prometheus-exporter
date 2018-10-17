@@ -12,6 +12,6 @@ rule_files:
 # A scrape configuration containing exactly one endpoint to scrape:
 # Here it's Prometheus itself.
 scrape_configs:
-  - job_name: 'coinmarketcap'
+  - job_name: 'bitcointrade'
     static_configs:
-      - targets: ['coinmarketcap-exporter:9101']
+      - targets: ['bitcointrade-exporter:9101']

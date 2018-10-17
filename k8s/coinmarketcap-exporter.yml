@@ -2,25 +2,27 @@ kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
   labels:
-    k8s-app: coinmarketcap-exporter
-  name: coinmarketcap-exporter
-  namespace: monitoring
+    app: bitcointrade-exporter
+  name: bitcointrade-exporter
+  namespace: bitcoin
 spec:
   replicas: 1
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      k8s-app: coinmarketcap-exporter
+      app: bitcointrade-exporter
   template:
     metadata:
       labels:
-        k8s-app: coinmarketcap-exporter
+        app: bitcointrade-exporter
       annotations:
         prometheus.io/scrape: 'true'
+        prometheus.io/port: 9101
     spec:
       containers:
-      - name: coinmarketcap-exporter
-        image: bcawthra/coinmarketcap-exporter:2017-12-17
+      - name: bitcointrade-exporter
+        image: souzabrunoftw/bitcointrade-prometheus-exporter:test
         ports:
         - containerPort: 9101
           protocol: TCP
+        imagePullPolicy: "Always"

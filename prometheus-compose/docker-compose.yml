@@ -25,6 +25,5 @@ services:
     image: grafana/grafana:latest
     volumes:
       - ./init.sh:/opt/init.sh
-  coinmarketcap-exporter:
-    image: bcawthra/coinmarketcap-exporter:latest
-
+  bitcointrade-exporter:
+    image: souzabrunoftw/bitcointrade-prometheus-exporter:latest

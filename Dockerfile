@@ -1,9 +1,7 @@
-FROM python:3.6
+FROM python:3.6-alpine
 RUN pip install prometheus_client requests
-RUN mkdir -p /opt/coinmarketcap-exporter
-COPY ./Dockerfile /opt/coinmarketcap-exporter/
-COPY ./README.md /opt/coinmarketcap-exporter/
-COPY ./coinmarketcap.py /opt/coinmarketcap-exporter/
-WORKDIR /opt/coinmarketcap-exporter
+RUN mkdir -p /opt/bitcointrade-exporter
+COPY bitcointrade.py /opt/bitcointrade-exporter/
+WORKDIR /opt/bitcointrade-exporter
 
-ENTRYPOINT ["python3", "coinmarketcap.py"]
+ENTRYPOINT ["python3", "bitcointrade.py"]
